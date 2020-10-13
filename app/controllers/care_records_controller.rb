@@ -40,7 +40,7 @@ class CareRecordsController < ApplicationController
   end
   private
   def care_record_params
-    params.require(:care_record).permit(:content, :client_id, :content_date)
+    params.require(:care_record).permit(:content, :client_id, :content_date, label_ids: [])
   end
   # idをキーとして値を取得するメソッドを追加
   def set_care_record

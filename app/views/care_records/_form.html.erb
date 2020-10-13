@@ -16,5 +16,18 @@
     <%= form.text_area :content %>
     <%= form.hidden_field :client_id %>
   </div>
+
+  <div class="field">
+  <p>入浴済、体操参加されていればチェックを入れてください</p>
+  <% Label.all.each do |label| %>
+      <% if action_name == 'new' || action_name == 'create' %>
+        <%= form.check_box :label_ids, { multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false}, label[:id], "" %>
+        <label><%= label.title %></label>
+      <% elsif action_name == 'edit' || action_name == 'update' %>
+        <%= form.check_box :label_ids, { multiple: true, checked: @care_record.label_ids.include?(label.id), disabled: label[:disabled], include_hidden: false}, label[:id], "" %>
+        <label><%= label.title %></label>
+      <% end %>
+    <% end %>
+  </div>
   <%= form.submit %>
 <% end %>

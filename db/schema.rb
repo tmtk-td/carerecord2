@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_13_104803) do
+ActiveRecord::Schema.define(version: 2020_10_13_130330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "care_record_labels", force: :cascade do |t|
+    t.bigint "care_record_id"
+    t.bigint "label_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["care_record_id"], name: "index_care_record_labels_on_care_record_id"
+    t.index ["label_id"], name: "index_care_record_labels_on_label_id"
+  end
 
   create_table "care_records", force: :cascade do |t|
     t.string "content"
@@ -40,11 +49,17 @@ ActiveRecord::Schema.define(version: 2020_10_13_104803) do
     t.index ["care_record_id"], name: "index_comments_on_care_record_id"
   end
 
+  create_table "labels", force: :cascade do |t|
+    t.string "title"
+  end
+
   create_table "staff_infos", force: :cascade do |t|
     t.string "info"
     t.date "info_date"
     t.integer "user_id"
   end
 
+  add_foreign_key "care_record_labels", "care_records"
+  add_foreign_key "care_record_labels", "labels"
   add_foreign_key "comments", "care_records"
 end

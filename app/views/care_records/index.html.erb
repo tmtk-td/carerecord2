@@ -10,6 +10,9 @@
     <td><%= care_record.content_date %></td>
     <td><%= care_record.client.name %>様</td>
     <td><%= care_record.content %></td>
+    <td><% care_record.care_record_labels.each do |care_record_label| %>
+      <%= care_record_label.label.title %><br>
+    <% end %></td>
     <td><%= link_to '詳細を確認する', care_record_path(care_record.id) %></td>
     <td><%= link_to "記録を編集する", edit_care_record_path(care_record.id), data: { confirm: '本当に編集していいですか？' } %></td>
     <td><%= link_to '記録を削除する', care_record_path(care_record.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
