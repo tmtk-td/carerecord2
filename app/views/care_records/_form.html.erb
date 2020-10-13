@@ -1,4 +1,4 @@
-<%= form_with(model: @care_record, local: true ,url: choose_new_or_edit) do |form| %>
+<%= form_with(model: @care_record, local: true) do |form| %>
   <% if @care_record.errors.any? %>
     <div id="error_explanation">
       <h2><%= @care_record.errors.count %>件のエラーがあります。</h2>
@@ -9,9 +9,12 @@
       </ul>
     </div>
   <% end %>
-  <div class="care_record_content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+  <div class="care_record_content","list-group">
+    <%= form.label :実施した日付を入力してください %>
+    <%= form.date_field :content_date %>
+    <%= form.label :介護記録 %>
+    <%= form.text_area :content %>
+    <%= form.hidden_field :client_id %>
   </div>
   <%= form.submit %>
 <% end %>

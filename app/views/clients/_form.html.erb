@@ -1,0 +1,37 @@
+<%= form_with(model: @client, local: true) do |form| %>
+  # <% if @client.errors.any? %>
+  #   <div id="error_explanation">
+  #     <h2><%= @client.errors.count %>件のエラーがあります。</h2>
+  #     <ul>
+  #     <% @client.errors.full_messages.each do |msg| %>
+  #       <li><%= msg %></li>
+  #     <% end %>
+  #     </ul>
+  #   </div>
+  # <% end %>
+  <div class="client_name">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="client_sex">
+    <%= form.label :sex %>
+    <%= form.select :sex, [["男性", "男性"], ["女性", "女性"]], include_blank: "選択して下さい" %>
+  </div>
+  <div class="client_born_on">
+    <%= form.label :born_on %>
+    <%= form.date_field :born_on %>
+  </div>
+  <div class="client_age">
+    <%= form.label :age %>
+    <%= form.text_field :age %>
+  </div>
+  <div class="client_information">
+    <%= form.label :information %>
+    <%= form.text_field :information %>
+  </div>  
+  <div class="client_image">  
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+  <%= form.submit %>
+<% end %>

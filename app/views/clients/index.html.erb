@@ -1,0 +1,22 @@
+<h1>利用者様一覧</h1>
+<table>
+  <tr>
+    <th>利用者様</th>
+  </tr>
+<% @clients.each do |client| %>
+  <tr>
+    <td><%= client.name %> 様</td>
+    <td><%= client.sex %></td>
+    <td><%= client.born_on %></td>
+    <td><%= client.age %></td>
+    <td><%= client.information %></td>
+    <td><%= link_to '詳細を確認する', client_path(client.id) %></td>
+    <td><%= link_to "記録を編集する", edit_client_path(client.id), data: { confirm: '本当に編集していいですか？' } %></td>
+    <td><%= link_to '記録を削除する', client_path(client.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+    <td><%= link_to '介護記録一覧', care_records_path(client_id: client.id) %></td>
+    <td><%= link_to '記録を書く', new_care_record_path(client_id: client.id) %></td>
+  </tr>
+<% end %>
+</table>
+<br>
+<%= link_to '新しい利用者作成', new_client_path %>

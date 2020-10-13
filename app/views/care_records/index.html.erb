@@ -1,10 +1,14 @@
 <h1>記録一覧</h1>
 <table>
   <tr>
-    <th>記録</th>
+  <th>記録記入日付</th>
+  <th>利用者様名</th>
+  <th>内容</th>
   </tr>
 <% @care_records.each do |care_record| %>
   <tr>
+    <td><%= care_record.content_date %></td>
+    <td><%= care_record.client.name %>様</td>
     <td><%= care_record.content %></td>
     <td><%= link_to '詳細を確認する', care_record_path(care_record.id) %></td>
     <td><%= link_to "記録を編集する", edit_care_record_path(care_record.id), data: { confirm: '本当に編集していいですか？' } %></td>
@@ -13,4 +17,4 @@
 <% end %>
 </table>
 <br>
-<%= link_to '新しく記録する', new_care_record_path %>
+<td><%= link_to '記録を書く', new_care_record_path(client_id: params[:client_id]), class: "btn btn-info" %></td>
