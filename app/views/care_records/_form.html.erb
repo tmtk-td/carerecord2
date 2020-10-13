@@ -1,0 +1,17 @@
+<%= form_with(model: @care_record, local: true ,url: choose_new_or_edit) do |form| %>
+  <% if @care_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @care_record.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @care_record.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="care_record_content">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>
