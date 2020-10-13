@@ -19,6 +19,8 @@ class CareRecordsController < ApplicationController
   end
   def show
     # @care_record = CareRecord.find(params[:id]) 共通処理
+    @comments = @care_record.comments
+    @comment = @care_record.comments.build
   end
   def edit
     # @care_record = CareRecord.find(params[:id]) 共通処理

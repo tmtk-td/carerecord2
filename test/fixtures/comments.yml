@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  care_record: one
+  addcontent: MyText
+
+two:
+  care_record: two
+  addcontent: MyText

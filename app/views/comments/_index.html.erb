@@ -1,0 +1,11 @@
+<div class="container">
+<ul>
+  <% comments.each do |comment| %>
+    <% if comment.id.present? %>
+      <li>
+        <p>→<%= comment.addcontent %></p>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+</div>
