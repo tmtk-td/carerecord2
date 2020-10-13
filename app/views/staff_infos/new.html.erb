@@ -1,0 +1,20 @@
+<%= form_with(model: @staff_info, local: true) do |form| %>
+  <% if @staff_info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @staff_info.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @staff_info.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="staff_info_info">
+    <%= form.label :記入日 %>
+    <%= form.date_field :info_date %>
+    <%= form.label :info %>
+    <%= form.text_field :info %>
+  </div>
+  <%= form.submit %>
+<% end %>
+<%= link_to '一覧画面に戻る', staff_infos_path %>
