@@ -7,6 +7,7 @@ class CareRecordsController < ApplicationController
   def new
     @care_record = CareRecord.new
     @care_record.client_id = params[:client_id]
+    @care_record.user_id = current_user.id
   end
   def create
     @care_record = CareRecord.new(care_record_params)
@@ -41,7 +42,7 @@ class CareRecordsController < ApplicationController
   end
   private
   def care_record_params
-    params.require(:care_record).permit(:content, :client_id, :content_date, label_ids: [])
+    params.require(:care_record).permit(:content, :client_id, :content_date, :user_id, label_ids: [])
   end
   # idをキーとして値を取得するメソッドを追加
   def set_care_record
