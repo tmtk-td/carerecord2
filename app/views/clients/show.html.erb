@@ -2,6 +2,10 @@
 <h1>ご利用者様詳細画面</h1>
 <tr>
 <table class="table table-striped table-bordered" >
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @client.image.url, size: '100x100' if @client.image.present?%>
+</p>
 <tr>
   <th>お名前:</th> 
   <td><%= @client.name %> 様</td>

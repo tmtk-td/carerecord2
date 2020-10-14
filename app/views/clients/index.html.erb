@@ -3,6 +3,7 @@
 <h1>利用者様一覧</h1>
 <table class="table table-striped table-bordered">
   <tr>
+  <th>近影写真</th>
   <th>お名前</th>
   <th>性別</th>
   <th>誕生日</th>
@@ -11,6 +12,7 @@
   </tr>
 <% @clients.each do |client| %>
   <tr>
+    <td><%= image_tag client.image.url, size: '50x50' if client.image.present? %></td>
     <td><%= client.name %> 様</td>
     <td><%= client.sex %></td>
     <td><%= client.born_on %></td>
