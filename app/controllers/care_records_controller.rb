@@ -1,5 +1,6 @@
 class CareRecordsController < ApplicationController
   before_action :set_care_record, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   def index
     @care_records = CareRecord.where(client_id: params[:client_id]).order(content_date: "desc")
   end

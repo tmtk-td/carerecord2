@@ -10,6 +10,20 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+    <%= link_to "利用者様一覧", clients_path, class: "btn btn-default" %>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-default" %>
+    <% else %>
+    <%= link_to "新規登録", new_user_registration_path, class: "btn btn-default" %>
+    <%= link_to "ログイン", new_user_session_path, class: "btn btn-default" %>
+    <% end %>
+
+      <% if notice %>
+      <p class="alert alert-notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-error"><%= alert %></p>
+    <% end %>
     <%= yield %>
-  </body>
+    </body>
 </html>
