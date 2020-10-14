@@ -1,4 +1,5 @@
 <h1>記録一覧</h1>
+<h1><%= Date.current.strftime('%Y年 %m月 %d日') %></h1>
 <table>
   <tr>
   <th>記録記入日付</th>
@@ -13,9 +14,11 @@
     <td><% care_record.care_record_labels.each do |care_record_label| %>
       <%= care_record_label.label.title %><br>
     <% end %></td>
-    <td><%= link_to '詳細を確認する', care_record_path(care_record.id) %></td>
-    <td><%= link_to "記録を編集する", edit_care_record_path(care_record.id), data: { confirm: '本当に編集していいですか？' } %></td>
-    <td><%= link_to '記録を削除する', care_record_path(care_record.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+    <td><%= link_to '詳細確認', care_record_path(care_record.id) %></td>
+    <% if current_user.id == care_record.user_id || current_user.admin? %>
+      <td><%= link_to "編集する", edit_care_record_path(care_record.id,edit_care_record_path(care_record)) %></td>
+      <td><%= link_to '削除する', care_record_path(care_record.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

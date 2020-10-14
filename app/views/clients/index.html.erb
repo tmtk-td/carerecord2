@@ -1,4 +1,5 @@
 <h1>利用者様一覧</h1>
+<h1><%= Date.current.strftime('%Y年 %m月 %d日') %></h1>
 <table>
   <tr>
   <th>お名前</th>
@@ -15,12 +16,17 @@
     <td><%= client.age %></td>
     <td><%= client.information %></td>
     <td><%= link_to '詳細確認', client_path(client.id) %></td>
-    <td><%= link_to "編集する", edit_client_path(client.id), data: { confirm: '本当に編集していいですか？' } %></td>
-    <td><%= link_to '削除する', client_path(client.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
     <td><%= link_to '介護記録一覧', care_records_path(client_id: client.id) %></td>
     <td><%= link_to '記録を書く', new_care_record_path(client_id: client.id) %></td>
+    <% if current_user.admin? %>
+        <td><%= link_to "編集する", edit_client_path(client.id) %></td>
+        <td><%= link_to '削除する', client_path(client.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 <br>
-<%= link_to '新しい利用者作成', new_client_path %>
+<%= link_to 'トップ画面にもどる', users_index_path, class: "btn btn-info" %>
+<% if current_user.admin? %>
+  <%= link_to '利用者様登録', new_client_path, class: "btn btn-default" %>
+<% end %>
