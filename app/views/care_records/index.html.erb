@@ -9,6 +9,7 @@
   <th>利用者様名</th>
   <th>記録</th>
   <th>追加記録</th>
+  <th>入浴と体操</th>
   </tr>
 <% @care_records.each do |care_record| %>
   <tr>
@@ -25,7 +26,7 @@
     <td><% care_record.care_record_labels.each do |care_record_label| %>
       <%= care_record_label.label.title %><br>
     <% end %></td>
-    <td><%= link_to '詳細確認', care_record_path(care_record.id) %></td>
+    <td><%= link_to '詳細確認', care_record_path(care_record.id), data: {"turbolinks" => false} %></td>
     <% if current_user.id == care_record.user_id || current_user.admin? %>
       <td><%= link_to "編集する", edit_care_record_path(care_record.id,edit_care_record_path(care_record)) %></td>
       <td><%= link_to '削除する', care_record_path(care_record.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>

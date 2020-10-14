@@ -18,6 +18,7 @@
     <td><% @care_record.care_record_labels.each do |care_record_label| %>
       <%= care_record_label.label.title %><br>
     <% end %></td>
+    <td><%= link_to '編集', edit_care_record_path(@care_record), class: "btn btn-info" %></td>
     
   </tr>
 
@@ -31,8 +32,7 @@
   </div>
   <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
   <%= render partial: 'comments/form', locals: { comment: @comment, care_record: @care_record } %>
-  <%= link_to '編集', edit_care_record_path(@care_record) %> |
-  <%= link_to '戻る', care_records_path %>
+  <%= link_to '記録一覧に戻る', care_records_path(client_id: @care_record.client_id), class: "btn btn-info" %>
+  <%= link_to '利用者様一覧へ', clients_path, class: "btn btn-info" %>
 </table>
 </div>
-<%= link_to '利用者様一覧へ', clients_path %>

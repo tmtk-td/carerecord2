@@ -31,7 +31,7 @@ class CareRecordsController < ApplicationController
     # @care_record = CareRecord.find(params[:id]) 共通処理
     if @care_record.update(care_record_params)
       session[:client_id] = @care_record.client_id
-      redirect_to care_records_path(client_id: params[:care_record][:client_id]), notice: "編集しました！"
+      redirect_to care_records_path(client_id: @care_record.client_id), notice: "編集しました！"
     else
       render :edit
     end
