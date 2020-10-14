@@ -30,3 +30,4 @@
 <% if current_user.admin? %>
   <%= link_to '利用者様登録', new_client_path, class: "btn btn-default" %>
 <% end %>
+<%= paginate @clients %>
