@@ -11,20 +11,23 @@
 # Label.create!(
 #    title: "体操参加"
 # )
-
-# 5.times do |n|
-#       Client.create!(
+# clients = []
+# 10.times do |n|
+#       clients << Client.new(
 #         name: "男性利用者sample#{n + 1}",
 #         sex: "男性",
 #         image: File.open('./app/assets/images/m_e_others_501.png')
 #       )
 #    end
+# Client.import clients  
 
-10.times do |n|
-   Client.create!(
-      name: "女性利用者sample#{n + 1}",
-      sex: "女性",
-      image: File.open('./app/assets/images/m_e_others_501.png')
-   )
-end   
-   
+# clients = []
+# 10.times do |n|
+#    clients << Client.new(
+#       name: "女性利用者sample#{n + 1}",
+#       sex: "女性",
+#       image: File.open('./app/assets/images/m_e_others_501.png')
+#    )
+# end
+# Client.import clients 
+
