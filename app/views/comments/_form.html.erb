@@ -12,8 +12,10 @@
   <% end %>
   <div class="field">
     <h3>追加記録はこちらから記入</h3>
-    <%= form.label :addcontent %>
-    <%= form.text_area :addcontent %>
+    <tr><table class="table table-striped table-bordered"></tr>
+    <%= form.label :追加情報 %>
+    <h4><%= form.text_area :addcontent %></h4>
+    </table>  
   </div>
   <div class="actions">
     <%= form.submit %>

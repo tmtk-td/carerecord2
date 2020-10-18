@@ -1,9 +1,9 @@
-<div class="container">
+<div class="list-group">
 <ul>
   <% comments.each do |comment| %>
     <% if comment.id.present? %>
       <li>
-        <p>→<%= comment.addcontent %></p>
+        <h4>→<%= comment.addcontent %></h4>
       </li>
     <% end %>
   <% end %>
