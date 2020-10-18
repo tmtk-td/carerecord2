@@ -38,7 +38,7 @@ class CareRecordsController < ApplicationController
   end
   def destroy
     @care_record.destroy
-    redirect_to care_records_path(client_id: params[:care_record][:client_id]), notice:"記録を削除しました！"
+    redirect_to care_records_path(client_id: @care_record.client_id), notice:"記録を削除しました！"
   end
   private
   def care_record_params
