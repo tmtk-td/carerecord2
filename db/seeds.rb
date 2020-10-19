@@ -5,29 +5,29 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# Label.create!(
-#    title: "入浴済み"
-# )
-# Label.create!(
-#    title: "体操参加"
-# )
-# clients = []
-# 10.times do |n|
-#       clients << Client.new(
-#         name: "男性利用者sample#{n + 1}",
-#         sex: "男性",
-#         image: File.open('./app/assets/images/m_e_others_501.png')
-#       )
-#    end
-# Client.import clients  
+Label.create!(
+   title: "入浴済み"
+)
+Label.create!(
+   title: "体操参加"
+)
+clients = []
+10.times do |n|
+      clients << Client.new(
+        name: "男性利用者sample#{n + 1}",
+        sex: "男性",
+        image: File.open('./app/assets/images/m_e_others_501.png')
+      )
+   end
+Client.import clients  
 
-# clients = []
-# 10.times do |n|
-#    clients << Client.new(
-#       name: "女性利用者sample#{n + 1}",
-#       sex: "女性",
-#       image: File.open('./app/assets/images/m_e_others_501.png')
-#    )
-# end
-# Client.import clients 
+clients = []
+10.times do |n|
+   clients << Client.new(
+      name: "女性利用者sample#{n + 1}",
+      sex: "女性",
+      image: File.open('./app/assets/images/m_e_others_501.png')
+   )
+end
+Client.import clients 
 
