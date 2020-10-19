@@ -69,11 +69,11 @@ devise
 
 kaminari
 
-cancancan
-
 carrierwave
 
 mini_magick
+
+letter_opener_web
 
 
 就職termからの実装
