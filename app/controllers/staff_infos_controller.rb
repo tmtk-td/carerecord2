@@ -8,6 +8,7 @@ class StaffInfosController < ApplicationController
   end
   def create
     @staff_info = StaffInfo.new(staff_info_params)
+    @staff_info.user_id = current_user.id
     # @staff_info.user_id = current_user.id
     if @staff_info.save
       # 一覧画面へ遷移して"ブログを作成しました！"とメッセージを表示します。

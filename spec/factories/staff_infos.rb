@@ -4,6 +4,7 @@ FactoryBot.define do
   factory :staff_info do
     info { 'info_sample1' }
     info_date {'2020-09-16'}
+    user_id { 1 }
     
   end
   # 作成するテストデータの名前を「second_staff_info」とします
@@ -11,6 +12,7 @@ FactoryBot.define do
   factory :second_staff_info, class: StaffInfo do
     info { 'info_sample2' }
     info_date {'2020-09-16'}
+    user_id { 1 }
   end  
     # association :sender, factory: :client
     # association :recipient, factory: :client
