@@ -11,7 +11,5 @@ Rails.application.routes.draw do
   resources :clients
   resources :staff_infos
   root 'users#index'
-  if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
 end

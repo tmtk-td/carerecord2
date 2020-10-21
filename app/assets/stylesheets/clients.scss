@@ -47,6 +47,7 @@ div {
   &.field, &.actions {
     margin-bottom: 10px;
   }
+  
 }
 
 #notice {
@@ -57,6 +58,8 @@ div {
   padding: 2px;
   background-color: red;
   display: table;
+  margin-right: auto;
+  margin-left : auto;
 }
 
 #error_explanation {
@@ -65,9 +68,11 @@ div {
   padding: 7px 7px 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
+  margin-right: auto;
+  margin-left : auto;
 
   h2 {
-    text-align: left;
+    text-align: center;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
     font-size: 12px;
@@ -84,4 +89,9 @@ div {
 
 label {
   display: block;
+}
+
+.field {
+  margin-right: auto;
+  margin-left : auto;
 }

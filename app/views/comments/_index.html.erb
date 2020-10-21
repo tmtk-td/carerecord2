@@ -1,11 +1,17 @@
-<div class="list-group">
-<ul>
+<div>
+  
   <% comments.each do |comment| %>
+    <div class="box8">
     <% if comment.id.present? %>
-      <li>
-        <h4>→<%= comment.addcontent %></h4>
-      </li>
+    <div class="comment-addcontent" id ="this_comment_<%= comment.id %>"></div>
+
+        <p>追加記録</p>
+        <p>→<%= comment.addcontent %></p>
+        <p><%= link_to "編集", edit_care_record_comment_path(care_record, comment), remote: true %></p>
+        <p><%= link_to "削除", care_record_comment_path(comment.care_record_id, comment.id), method: :delete, remote: true,
+                                        data: { confirm: "本当に削除しますか?"} %></p>
+
     <% end %>
-  <% end %>
-</ul>
+    </div>  
+    <% end %>
 </div>

@@ -1,6 +1,6 @@
 <%= form_with(model: @care_record, local: true) do |form| %>
   <% if @care_record.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation", align="center">
       <h2><%= @care_record.errors.count %>件のエラーがあります。</h2>
       <ul>
       <% @care_record.errors.full_messages.each do |msg| %>
