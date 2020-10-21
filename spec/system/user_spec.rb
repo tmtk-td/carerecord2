@@ -27,18 +27,19 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能', type: :
         fill_in 'user[password]', with: '111111'
         click_button 'ログイン'
         expect(page).to have_content 'aaaaaa@exam.com'
+        expect(page).to have_content '現在 aaaaaa さんがログインしています'
       end
     end 
   
     context '投稿ページにいけないこと' do
-      it 'ログインしていない時はログイン画面に飛ぶテスト' do
+      it 'ログインしていない時はログイン画面に飛ぶ' do
         visit care_records_path
         expect(current_path).to eq new_user_session_path
       end
     end 
 
     context 'ログアウトができること' do
-      it 'ログアウトしてトップページへ戻る' do
+      it 'ログアウトするとトップページへ戻る' do
         visit new_user_session_path
         fill_in 'user[email]', with: 'aaaaaa@exam.com'
         fill_in 'user[password]', with: '111111'

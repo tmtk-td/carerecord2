@@ -19,7 +19,12 @@
   </div>
   <div class="client_born_on">
     <%= form.label :born_on %>
-    <%= form.date_field :born_on %>
+    <%= form.date_select( :born_on,
+        use_month_numbers: true,
+        start_year: 1910,
+        end_year: (Time.now.year ),
+        default: Date.new(1920, 1, 1),
+        date_separator: '/') %>
   </div>
   <div class="client_age">
     <%= form.label :age %>

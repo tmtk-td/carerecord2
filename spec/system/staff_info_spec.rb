@@ -30,12 +30,11 @@ RSpec.describe 'スタッフ連絡事項記録機能', type: :system do
       it '連絡事項一覧が表示される' do
       FactoryBot.create(:staff_info, user_id: @user.id)
       FactoryBot.create(:second_staff_info, user_id: @user.id)
-      # 3. 「登録する」というvalue（表記文字）のあるボタンをクリックする
-      # ここに「登録する」というvalue（表記文字）のあるボタンをclick_onする（クリックする）する処理を書く
-      # 4. clickで登録されたはずの情報が、記録詳細ページに表示されているかを確認する
-      # （記録が登録されたら記録詳細画面に遷移されるという前提）
-      # ここに記録詳細ページに、テストコードで作成したデータが記録詳細画面にhave_contentされているか（含まれているか）を確認（期待）するコードを書く
+      # テストコードで作成したデータが記録一覧画面にhave_contentされているか（含まれているか）を確認（期待）するコードを書く
       expect(page).to have_content '連絡事項一覧'
+      expect(page).to have_content 'info_sample1'
+      expect(page).to have_content 'info_sample2'
+      # expect(page).to have_content ''
       end
     end
   end
