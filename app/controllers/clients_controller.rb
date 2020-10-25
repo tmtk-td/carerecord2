@@ -1,7 +1,9 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
   def index
-    @clients = Client.order(id: "asc").page(params[:page]).per(10)
+    # @clients = Client.order(id: "asc").page(params[:page]).per(10)
+    @q = Client.ransack(params[:q])
+    @clients = @q.result(distinct: true).order(id: "asc").page(params[:page]).per(10)
   end
   def new
     @client = Client.new

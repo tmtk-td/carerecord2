@@ -14,3 +14,34 @@
  *= require_tree .
  *= require_self
  */
+
+
+ .header {
+  background-color: #F5B4B3;
+  height: 60px;
+  font-size: 1.5rem;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.top_menu li {
+  float: left;
+  
+}
+ul {
+  /* 余白を削除 */
+  margin: 0;
+  padding: 0;
+}
+li {
+  /* リスト先頭の黒丸を削除 */
+  list-style: none;
+}
+footer {
+  background-color: #F5B4B3;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}

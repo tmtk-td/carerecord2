@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Carerecord2</title>
+    <title>Carerecord</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+  <header class="header clearfix">
+  <nav>
+    <ul class="top_menu clearfix">
+    <li><%= link_to '介護記録作成プログラム', users_index_path %></li>
+    
+
     <% if user_signed_in? %>
     <%= link_to 'トップ画面にもどる', users_index_path,class: "btn btn-default" %>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-default" %>
@@ -17,7 +22,7 @@
     <%= link_to "新規登録", new_user_registration_path, class: "btn btn-default" %>
     <%= link_to "ログイン", new_user_session_path, class: "btn btn-default" %>
     <% end %>
-
+    </header>
       <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
     <% end %>
@@ -25,5 +30,12 @@
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
     <%= yield %>
+    </nav>
+    </header>
     </body>
+<footer>
+    <p>運営会社 TMTK material 株式会社</p>
+    <p>© 2015-2020 Copyright TMTK material Corp.</p>
+  </footer>
 </html>
+
