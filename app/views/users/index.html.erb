@@ -14,5 +14,8 @@
 <% else %>
   <!-- ユーザーがログインしていなかった時の処理 -->
   <h2> ログインしてください </h2>
+  <%= link_to "ログイン", new_user_session_path, class: "btn btn-default" %>
+  <h2> 新規登録は下記ボタンから登録してください。 </h2>
+  <%= link_to "新規登録", new_user_registration_path, class: "btn btn-default" %>
   
 <% end %>

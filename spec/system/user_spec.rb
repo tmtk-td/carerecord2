@@ -44,7 +44,7 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能', type: :
         fill_in 'user[email]', with: 'aaaaaa@exam.com'
         fill_in 'user[password]', with: '111111'
         click_button 'ログイン'
-        click_on 'ログアウト'
+        click_button 'ログアウト'
         expect(current_path).to eq "/"
       end
     end 

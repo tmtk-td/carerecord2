@@ -1,9 +1,21 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
   def index
-    # @clients = Client.order(id: "asc").page(params[:page]).per(10)
     @q = Client.ransack(params[:q])
-    @clients = @q.result(distinct: true).order(id: "asc").page(params[:page]).per(10)
+    @clients = @q.result(distinct: true).includes(:care_records).order("care_records.updated_at desc").page(params[:page]).per(10)
+    # @clients = Client.includes(:care_records).order("care_records.updated_at desc").page(params[:page]).per(10)
+    # @q = Client.ransack(params[:q])
+    # @clients = @q.result(distinct: true).joins(:care_record).includes(:care_record).order("care_records: update").page(params[:page]).per(10)
+
+
+    # @q = Client.ransack(params[:q])
+      # if @q.sorts.empty?
+      #   @q = Client.includes(:care_records).order("care_records.updated_at desc")
+      #   @clients = @q.page(params[:page]).per(10)
+      # else
+      #   @clients = @q.result.page(params[:page]).per(10)
+      # end  
+      # @clients = @q.result.page(params[:page]).per(10)
   end
   def new
     @client = Client.new
