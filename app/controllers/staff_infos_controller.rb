@@ -1,7 +1,7 @@
 class StaffInfosController < ApplicationController
   before_action :set_staff_info, only: [:edit, :update, :destroy]
   def index
-    @staff_infos = StaffInfo.all.order(info_date: "desc")
+    @staff_infos = StaffInfo.all.order(info_date: "desc").page(params[:page]).per(10)
   end
   def new
     @staff_info = StaffInfo.new
