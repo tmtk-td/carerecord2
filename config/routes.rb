@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :care_records do
     resources :comments
   end
+  resources :users
   resources :clients
   resources :staff_infos
   root 'users#index'
