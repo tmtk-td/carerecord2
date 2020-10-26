@@ -1,24 +1,26 @@
 <div class="list-group" >
 <h1><%= Date.current.strftime('%Y年 %m月 %d日') %></h1>
 <h1>連絡事項一覧</h1>
-<div class="table-responsive">
-<table class="table table-striped table-bordered" >
-  <tr>
-    <th>記入者</th>
-    <th>記入日</th>
-    <th>内容</th>
-  </tr>
-<% @staff_infos.each do |staff_info| %>
-  <tr>
-    <td><%= staff_info.user.name %></td>
-    <td><%= staff_info.info_date %></td>
-    <td><%= staff_info.info %></td>
-    <td><%= link_to "編集する", edit_staff_info_path(staff_info.id) %></td>
-    <td><%= link_to '削除する', staff_info_path(staff_info.id), method: :delete, data: { confirm: '本当に編集していいですか？' } %></td>
-  </tr>
-<% end %>
-</table>
-</div>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered" >
+      <tr>
+        <th>記入者</th>
+        <th>記入日</th>
+        <th>内容</th>
+      </tr>
+    <% @staff_infos.each do |staff_info| %>
+      <tr>
+        <td><%= staff_info.user.name %></td>
+        <td><%= staff_info.info_date %></td>
+        <td><%= staff_info.info %></td>
+        <td><%= link_to "編集する", edit_staff_info_path(staff_info.id) %></td>
+        <td><%= link_to '削除する', staff_info_path(staff_info.id), method: :delete, data: { confirm: '本当に編集していいですか？' } %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
 <%= link_to '新しく連絡事項を記入', new_staff_info_path, class: "btn btn-info" %>
 <%= link_to '利用者様一覧へ', clients_path, class: "btn btn-info" %>
 <%= link_to 'トップ画面にもどる', users_index_path, class: "btn btn-info" %>
+</div>
+<%= paginate @staff_infos %>

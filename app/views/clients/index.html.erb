@@ -6,7 +6,7 @@
 
   <!--ここから追加-->
   <%= f.label :sex %>
-　<%= f.radio_button :sex_eq, '', {:checked => true} %>指定なし
+  <%= f.radio_button :sex_eq, '', {:checked => true} %>指定なし
   <%= f.radio_button :sex_eq, "男性" %>男性
   <%= f.radio_button :sex_eq, "女性" %>女性
   <!--ここまで追加-->
@@ -42,6 +42,7 @@
   </tr>
 <% end %>
 </table>
+</div>
 <br>
 <%= link_to 'トップ画面にもどる', users_index_path, class: "btn btn-info" %>
 <% if current_user.admin? %>

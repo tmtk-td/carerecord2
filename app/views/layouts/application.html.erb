@@ -9,44 +9,43 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-  <nav class="navbar navbar-default">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="/">
-				介護記録作成プログラム
-			</a>
-		</div>
-		
-		
-      <ul class="nav navbar-nav">
-      <% if user_signed_in? %>
-        <li><a>   記入者：<%= current_user.name %> さん</a></li>
-				<li><%= link_to "[→利用者一覧画面へ]", clients_path %></li>
-        <li><%= link_to '[→スタッフ連絡事項画面へ]', staff_infos_path %></li>
-      <% end %> 
-			</ul>
-      <button type="button" class="btn btn-default navbar-right">
-        <% if user_signed_in? %>
-          <a><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
-        <% end %>
-      </button>
-	
-	</div>
-</nav>
-    
-    </header>
-      <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
-    <% end %>
-    <%= yield %>
-    
-    </body>
-<footer>
-    <p>運営会社 TMTK material 株式会社</p>
-    <p>© 2015-2020 Copyright TMTK material Corp.</p>
-  </footer>
+    <div class="wrapper">
+      <div class="container">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid ">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="/">
+                  介護記録作成プログラム
+                </a>
+              </div>
+
+              <ul class="nav navbar-nav">
+                <% if user_signed_in? %>
+                  <li><a>   記入者：<%= current_user.name %> さん</a></li>
+                  <li><%= link_to "[→利用者一覧画面へ]", clients_path %></li>
+                  <li><%= link_to '[→スタッフ連絡事項画面へ]', staff_infos_path %></li>
+                <% end %> 
+              </ul>
+              <% if user_signed_in? %>
+                <button type="button" class="btn btn-default navbar-right">
+                    <a><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
+                </button>
+              <% end %>
+            </div>
+          </nav>
+          <% if notice %>
+            <p class="alert alert-notice"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert alert-error"><%= alert %></p>
+          <% end %>
+          <%= yield %>
+      </div>
+        <footer class="footer">
+          <p>運営会社 TMTK material 株式会社</p>
+          <p>© 2015-2020 Copyright TMTK material Corp.</p>
+        </footer>
+    </div>  
+  </body>
 </html>
 
