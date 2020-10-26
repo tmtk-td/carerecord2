@@ -4,11 +4,10 @@
 <h4>記録件数：<%= CareRecord.where(client_id: params[:client_id]).count %></h4>
 <h3>追加記録は詳細確認から記入してください</h3>
 <%= search_form_for @q do |f| %>
-  <tr>
+ <tr>
   <th><%= sort_link(@q, :content_date, "→『日付新旧切り替え』") %></th>
-  <th><%= sort_link(@q, :updated_at, "→『更新順新旧切り替え』") %></th>
   <th colspan="3"></th>
-</tr>
+ </tr>
 <% end %>
 
 <!-- 省略 -->
