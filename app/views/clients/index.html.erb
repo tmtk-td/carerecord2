@@ -6,7 +6,7 @@
 
   <!--ここから追加-->
   <%= f.label :sex %>
-　<%= f.radio_button :sex_eq, '', {:checked => true} %>指定なし
+  <%= f.radio_button :sex_eq, '', {:checked => true} %>指定なし
   <%= f.radio_button :sex_eq, "男性" %>男性
   <%= f.radio_button :sex_eq, "女性" %>女性
   <!--ここまで追加-->
@@ -33,7 +33,7 @@
     <td><%= client.age %></td>
     <td><%= client.information %></td>
     <td><%= link_to '詳細確認', client_path(client.id) %></td>
-    <td><%= link_to '介護記録一覧', care_records_path(client_id: client.id) %></td>
+    <td><%= link_to '介護記録一覧', care_records_path(client_id: client.id) %><br><%= client.care_records.count %>件</td>
     <td><%= link_to '記録を書く', new_care_record_path(client_id: client.id) %></td>
     <% if current_user.admin? %>
         <td><%= link_to "編集する", edit_client_path(client.id) %></td>

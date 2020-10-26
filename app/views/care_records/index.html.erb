@@ -24,6 +24,7 @@
   <% @care_records.each do |care_record| %>
     <tr>
       <td><%= care_record.content_date %></td>
+      <td><%= care_record.updated_at %></td>
       <td><%= User.find(care_record.user_id).name %></td>
       <td><%= care_record.client.name %>様</td>
       <td><%= care_record.content %></td>
