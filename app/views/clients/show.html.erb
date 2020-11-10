@@ -1,32 +1,31 @@
-<div class="container">
+<div  class="list-group">
 <h1>ご利用者様詳細画面</h1>
 <tr>
 <table class="table table-striped table-bordered" >
-<p>
-  <strong>近影写真:</strong>
-  <%= image_tag @client.image.url, size: '100x100' if @client.image.present?%>
-</p>
-<tr>
-  <th>お名前:</th> 
-  <td><%= @client.name %> 様</td>
-</tr>
-<tr>
-  <th>性別:</th> 
-  <td><%= @client.sex %></td>
-</tr>
-<tr>
-  <th>お誕生日:</th> 
-  <td><%= @client.born_on %></td>
-</tr>
-<tr>
-  <th>年齢:</th> 
-  <td><%= @client.age %></td>
-</tr>
-<tr>
-  <th>情報:</th> 
-  <td><%= @client.information %></td>
-</tr>
-
+    <p>
+      <strong>近影写真:</strong>
+      <%= image_tag @client.image.url, size: '100x100' if @client.image.present?%>
+    </p>
+    <tr>
+      <th>お名前:</th> 
+      <td><%= @client.name %> 様</td>
+    </tr>
+    <tr>
+      <th>性別:</th> 
+      <td><%= @client.sex %></td>
+    </tr>
+    <tr>
+      <th>お誕生日:</th> 
+      <td><%= @client.born_on %></td>
+    </tr>
+    <tr>
+      <th>年齢:</th> 
+      <td><%= @client.age %></td>
+    </tr>
+    <tr>
+      <th>情報:</th> 
+      <td><%= @client.information %></td>
+    </tr>
 </tr>
 </table>
 </div>
