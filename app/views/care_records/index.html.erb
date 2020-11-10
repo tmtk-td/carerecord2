@@ -2,7 +2,6 @@
 <h1><%= Date.current.strftime('%Y年 %m月 %d日') %></h1>
 <h1>記録一覧</h1>
 <h4>記録件数：<%= CareRecord.where(client_id: params[:client_id]).count %></h4>
-<h3>追加記録は詳細確認から記入してください</h3>
 
 <!-- 省略 -->
 <table class="table table-striped table-bordered">
@@ -11,7 +10,6 @@
     <th>記入者</th>
     <th>利用者様名</th>
     <th>記録</th>
-    <th>追加記録</th>
     <th>入浴と体操</th>
   </tr>
   <% @care_records.each do |care_record| %>
@@ -20,12 +18,6 @@
       <td><%= User.find(care_record.user_id).name %></td>
       <td><%= care_record.client.name %>様</td>
       <td><%= care_record.content %></td>
-      <td><% care_record.comments.each do |comment| %>
-        <% if comment.id.present? %>
-            <p>→<%= comment.addcontent %></p>
-        <% end %>
-      <% end %>
-      </td>
       <td><% care_record.care_record_labels.each do |care_record_label| %>
         <%= care_record_label.label.title %><br>
       <% end %></td>

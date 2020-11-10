@@ -1,14 +1,14 @@
-<div>
-  
-  <% comments.each do |comment| %>
-    <div class="box12">
-    <% if comment.id.present? %>
-    <div class="comment-addcontent" id ="this_comment_<%= comment.id %>"></div>
-        <p>→<%= comment.addcontent %></p>
-        <p><%= link_to "編集", edit_care_record_comment_path(care_record, comment), remote: true, class: "btn btn-info" %></p>
-        <p><%= link_to "削除", care_record_comment_path(comment.care_record_id, comment.id), method: :delete, remote: true,
-                                        data: { confirm: "本当に削除しますか?"}, class: "btn btn-info" %></p>
-    <% end %>
-    </div>  
-    <% end %>
+<div  class="container">
+
+    <div class="box12"> 
+      <% comments.each do |comment| %>
+        <% if comment.id.present? %>
+            <div class="comment-addcontent" id ="this_comment_<%= comment.id %>"></div>
+                <p>→<%= comment.addcontent %></p>
+                <p><%= link_to "編集", edit_care_record_comment_path(care_record, comment), remote: true, class: "btn btn-info" %></p>
+                <p><%= link_to "削除", care_record_comment_path(comment.care_record_id, comment.id), method: :delete, remote: true,
+                                                  data: { confirm: "本当に削除しますか?"}, class: "btn btn-info" %></p>
+        <% end %>
+      <% end %>
+    </div>
 </div>

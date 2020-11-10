@@ -1,3 +1,4 @@
+<div class="container">
 <!-- この記述がcare_recordのshow画面に表示されるコメント入力欄になります -->
 <%= form_with(model: [care_record, comment]) do |form| %>
   <% if comment.errors.any? %>
@@ -21,3 +22,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>

@@ -55,13 +55,6 @@ ER図
 
 https://drive.google.com/file/d/1bkTFnQR5G1IaM_4PU4dkaAt77fTmRp2_/view?usp=sharing
 
-画面遷移図
-
-https://cacoo.com/diagrams/IEG62r6Xmedv94DR/00F34
-
-ワイヤーフレーム
-
-https://cacoo.com/diagrams/H71RlhIEmIIB2Ndo/C9B6C
 
 使用予定gem
 

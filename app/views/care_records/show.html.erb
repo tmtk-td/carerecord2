@@ -1,38 +1,32 @@
-<div class="container" >
+<div class="list-group">
+
+
 <h1>詳細画面</h1>
 
-<table class="table">
-  <tr>
-    <th>記録記入日付</th>
-    <th>記入者</th>
-    <th>利用者様名</th>
-    <th>内容</th>
-    <th>入浴と体操</th>
-  </tr>
-
-  <tr>
-    <td><%= @care_record.content_date %></td>
-    <td><%= User.find(@care_record.user_id).name %></td>
-    <td><%= @care_record.client.name %>様</td>
-    <td><%= @care_record.content %></td>
-    <td><% @care_record.care_record_labels.each do |care_record_label| %>
-      <%= care_record_label.label.title %><br>
-    <% end %></td>
-    <td><%= link_to '編集', edit_care_record_path(@care_record), class: "btn btn-info" %></td>
+    <table class="table">
+      <tr>
+        <th>記録記入日付</th>
+        <th>記入者</th>
+        <th>利用者様名</th>
+        <th>内容</th>
+        <th>入浴と体操</th>
+      </tr>
+      <tr>
+        <td><%= @care_record.content_date %></td>
+        <td><%= User.find(@care_record.user_id).name %></td>
+        <td><%= @care_record.client.name %>様</td>
+        <td><%= @care_record.content %></td>
+        <td>
+          <% @care_record.care_record_labels.each do |care_record_label| %>
+            <%= care_record_label.label.title %><br>
+          <% end %>
+        </td>
+        <% if current_user.id == @care_record.user_id || current_user.admin? %>
+          <td><%= link_to '編集', edit_care_record_path(@care_record), class: "btn btn-info" %></td>
+        <% end %>  
+      </tr>
+    </table>
     
-  </tr>
-
-</table>
-<table class="table">
-<h1>追加記録</h1>
-  <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
-  <div id="comments_area">
-    <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
-    <%= render partial: 'comments/index', locals: { comments: @comments, care_record: @care_record } %>
-  </div>
-  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
-  <%= render partial: 'comments/form', locals: { comment: @comment, care_record: @care_record } %>
-</table>
   <td><%= link_to '記録一覧に戻る', care_records_path(client_id: @care_record.client_id), class: "btn btn-info" %></td>
   <td><%= link_to '利用者様一覧へ', clients_path, class: "btn btn-info" %></td>
 </div>

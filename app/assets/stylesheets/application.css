@@ -30,6 +30,7 @@ footer {
 }
 
 
+
 body {
   width: 100%;
   text-align: center;
@@ -39,6 +40,9 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 p, ol, ul, td {
