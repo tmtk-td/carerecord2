@@ -3,8 +3,12 @@ class CareRecordsController < ApplicationController
   before_action :authenticate_user!
   def index
     # @care_records = CareRecord.where(client_id: params[:client_id]).order(content_date: "desc").page(params[:page]).per(10)
+    if CareRecord.where(client_id: params[:client_id])
     @q = CareRecord.ransack(params[:q])
     @care_records = @q.result(distinct: true).where(client_id: params[:client_id]).order(content_date: "desc").page(params[:page]).per(10)
+    else CareRecord.where(client_id: params[:client_id].nil)
+      @care_records = CareRecord.where(client_id: params[:client_id.all]).page(params[:page]).per(10)
+    end
   end
   def new
     @care_record = CareRecord.new

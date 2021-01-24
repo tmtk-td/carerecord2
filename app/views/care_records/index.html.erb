@@ -17,7 +17,7 @@
       <td><%= care_record.content_date %></td>
       <td><%= User.find(care_record.user_id).name %></td>
       <td><%= care_record.client.name %>様</td>
-      <td><%= care_record.content %></td>
+      <td><%= care_record.content.truncate(10) %></td>
       <td><% care_record.care_record_labels.each do |care_record_label| %>
         <%= care_record_label.label.title %><br>
       <% end %></td>
